@@ -2,15 +2,15 @@ Package: sticker
 Title: Create hex stickers in R
 Version: 0.1.0
 Authors@R: c(person(given = "Laurent",
-                  family = "Gatto",
-		  email = "lg390@cam.ac.uk",
-		  role = c("aut","cre")),
+	            family = "Gatto",
+	            email = "lg390@cam.ac.uk",
+		    role = c("aut","cre")),
              person(given = "Guangchuang", family ="Yu",
 	            email = "guangchuangyu@gmail.com",
-		    role = "ctb"))		  
+		    role = "ctb"))
 Maintainer: Laurent Gatto <lg390@cam.ac.uk>
-Description: Miscellaneous helper functions aimed at facilitating and
-    standardising simple repetitive tasks.
+Description: Helps you create reproducible hexagonal sticker directly
+	     in R.
 Imports: ggplot2, ggforce, ggtree, showtext, sysfonts
 Suggests: grid
 License: GPL-3
