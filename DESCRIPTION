@@ -1,10 +1,13 @@
 Package: sticker
 Title: Create hex stickers in R
 Version: 0.1.0
-Authors@R: person(given = "Laurent",
+Authors@R: c(person(given = "Laurent",
                   family = "Gatto",
 		  email = "lg390@cam.ac.uk",
-		  role = c("aut","cre"))
+		  role = c("aut","cre")),
+             person(given = "Guangchuang", family ="Yu",
+	            email = "guangchuangyu@gmail.com",
+		    role = "ctb"))		  
 Maintainer: Laurent Gatto <lg390@cam.ac.uk>
 Description: Miscellaneous helper functions aimed at facilitating and
     standardising simple repetitive tasks.
