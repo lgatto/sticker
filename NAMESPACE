@@ -1,0 +1,9 @@
+import("ggplot2")
+import("ggforce")
+import("ggtree")
+
+importFrom("utils", "packageVersion")
+importFrom("showtext", "showtext.auto")
+importFrom("sysfonts", "font.add")
+
+export(make_sticker)
