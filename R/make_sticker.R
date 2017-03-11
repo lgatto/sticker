@@ -7,16 +7,24 @@
 ##' @param x The package logo. Can either be a ggplot, lattice or grob
 ##'     object.
 ##' @param package Package name, to be used as label on the
-##'     sticker. Default is "MyPackage".
+##'     sticker. Default is \code{"Bioconductor"}.
 ##' @param text_size Label font size. Default is 22.
 ##' @param col_text Label font colour. Default is \code{"#FFFFFF"}.
 ##' @param col_background Background colour. Default is
 ##'     \code{"#1881C2"}.
 ##' @param col_border Border colour. Default is \code{"#87B13F"}.
-##' @param grob_xmin Left position of the image. Default is -0.03.
+##' @param grob_xmin Left position of the image. Default is 0.
 ##' @param grob_xmax Right position of the image. Default is 2.
 ##' @param grob_ymin Bottom position of the image. Default is 0.05.
 ##' @param grob_ymax Top position of the image. Default is 1.75.
+##' @param font Font for the package name. Default is
+##'     \code{"Aller_Rg"}. Fonts shipped with the package are
+##'     available in \code{available_fonts} and any uniquely matching
+##'     subset can be used. For custom fonts, see
+##'     \code{font_custom}. This parameter is ignored if a custom font
+##'     is provided.
+##' @param font_custom A \code{character} defined the ful path to a
+##'     local font.
 ##' @param text_x Text horizontal alignment. Default is 1.
 ##' @param text_y Text vertical alignment. Default is 1.44.
 ##' @param filename By default, the sticker is saved saved printed to
@@ -42,15 +50,28 @@ make_sticker <- function(x,
                          col_text = "#FFFFFF",
                          col_background = "#1881C2",
                          col_border = "#87B13F",
-                         grob_xmin = .3,
+                         grob_xmin = 0,
                          grob_xmax = 1.65,
                          grob_ymin = 0.25,
                          grob_ymax = 1.3,
+                         font = "Aller_Rg",
+                         font_custom,
                          text_x = 1,
                          text_y = 1.4,
                          filename = paste(package, "png", sep = ".")) {
-    fonturl <- "https://rawgit.com/jotsetung/BioC-stickers/master/fonts/Aller/Aller_Rg.ttf"
-    font.add("Aller", fonturl)
+    if (!missing(font_custom)) {
+        stopifnot(file.exists(font_custom))
+        fnt <- font_custom
+    } else {
+        fnt <- grep(font, available_fonts(), value = TRUE, fixed = TRUE)
+        if (length(fnt) != 1) {
+            cat("Available fonts: ",
+                strwrap(paste(available_fonts(), collapse = ", ")),
+                sep = "\n ")
+            stop("Font ", font, " is not available.", call. = FALSE)
+        }
+    }
+    font.add("Aller", fnt)
     showtext.auto()
 
     x0 <- y0 <- r <- NULL ## Undefined global functions or variables

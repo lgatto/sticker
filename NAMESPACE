@@ -6,4 +6,4 @@ importFrom("utils", "packageVersion")
 importFrom("showtext", "showtext.auto")
 importFrom("sysfonts", "font.add")
 
-export(make_sticker)
+export(make_sticker, available_fonts)

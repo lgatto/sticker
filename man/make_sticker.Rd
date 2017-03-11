@@ -6,16 +6,16 @@
 \usage{
 make_sticker(x, package = "Bioconductor", text_size = 6,
   col_text = "#FFFFFF", col_background = "#1881C2",
-  col_border = "#87B13F", grob_xmin = 0.3, grob_xmax = 1.65,
-  grob_ymin = 0.25, grob_ymax = 1.3, text_x = 1, text_y = 1.4,
-  filename = paste(package, "png", sep = "."))
+  col_border = "#87B13F", grob_xmin = 0, grob_xmax = 1.65,
+  grob_ymin = 0.25, grob_ymax = 1.3, font = "Aller_Rg", font_custom,
+  text_x = 1, text_y = 1.4, filename = paste(package, "png", sep = "."))
 }
 \arguments{
 \item{x}{The package logo. Can either be a ggplot, lattice or grob
 object.}
 
 \item{package}{Package name, to be used as label on the
-sticker. Default is "MyPackage".}
+sticker. Default is \code{"Bioconductor"}.}
 
 \item{text_size}{Label font size. Default is 22.}
 
@@ -26,13 +26,23 @@ sticker. Default is "MyPackage".}
 
 \item{col_border}{Border colour. Default is \code{"#87B13F"}.}
 
-\item{grob_xmin}{Left position of the image. Default is -0.03.}
+\item{grob_xmin}{Left position of the image. Default is 0.}
 
 \item{grob_xmax}{Right position of the image. Default is 2.}
 
 \item{grob_ymin}{Bottom position of the image. Default is 0.05.}
 
 \item{grob_ymax}{Top position of the image. Default is 1.75.}
+
+\item{font}{Font for the package name. Default is
+\code{"Aller_Rg"}. Fonts shipped with the package are
+available in \code{available_fonts} and any uniquely matching
+subset can be used. For custom fonts, see
+\code{font_custom}. This parameter is ignored if a custom font
+is provided.}
+
+\item{font_custom}{A \code{character} defined the ful path to a
+local font.}
 
 \item{text_x}{Text horizontal alignment. Default is 1.}
 
